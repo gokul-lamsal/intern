@@ -1,0 +1,30 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.container {
+  height: 100vh;
+  position: relative;
+}
+.overlay {
+  position: absolute;
+  height: 20rem;
+  width: 20rem;
+  top: calc(50% - 10rem);
+  right: calc(50% - 10rem);
+  border: 3px solid saddlebrown;
+  background-color: aqua;
+}
+.overlay p {
+  margin-top: 10px;
+  font-size: 1.8rem;
+}
+.conformation {
+ margin-top: 8rem;
+ margin-left: 5rem;
+}
+.conformation button {
+  margin-right: 30px;
+  padding: 20px;
+}
