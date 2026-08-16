@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../gobal.css" />
+    <title>Footer example</title>
+  </head>
+  <style>
+    footer {
+      position: absolute;
+      border: 3px solid red;
+      height: 15rem;
+      width: 100%;
+      bottom: 0;
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem;
+    }
+  </style>
+  <body>
+    <footer>
+      <div style="width: 25rem;">
+        <h2>Footer task practice</h2>
+        <p >
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam
+          blanditiis sunt labore! Eius molestias laboriosam alias laudantium
+          dolore quis voluptate debitis possimus aliquam, qui, iure ut quisquam
+          nostrum error expedita.
+        </p>
+      </div>
+      <div>
+        <h2>Quick Link</h2>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <h2>Message</h2>
+        <input type="text" placeholder="Your name" id="username" />
+        <textarea name="message" rows="4" cols="50" placeholder="your message here"></textarea>
+        <div style="display:flex;justify-content:end;">
+            <button type="submit" style="padding:0.4rem 4rem;border-radius: 8px; border: 1px solid blanchedalmond;" >Send</button>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

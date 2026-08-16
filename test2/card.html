@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../gobal.css" />
+    <title>Card task</title>
+  </head>
+  <style>
+    .container {
+      display: flex;
+      border: 3px solid red;
+      flex-direction: column;
+      width: 20rem;
+      margin: 2rem 3rem;
+    }
+    .imgContainer {
+      width: 100%;
+      height: 15rem;
+    }
+    .imgContainer > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    /* .container > * {
+      border: 1px solid blue;
+    } */
+    .info{
+        margin: 5px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0rem 0.6rem;
+    }
+    .btns{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .btns button{
+        padding: 0.4rem 2.5rem;
+        border-radius: 5px;
+        border: 2px solid black;
+        background-color: white;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="imgContainer">
+        <img
+          src="https://img.drz.lazcdn.com/static/np/p/b8b7dc299da353205764e7613cd42c42.jpg_720x720q80.jpg_.webp"
+          alt=""
+          srcset=""
+        />
+      </div>
+      <div class="info">
+        <h2 style="text-align: center;">Brilliant Shoes For Men</h2>
+        <p>
+          Experience style and comfort in every step. Crafted from premium
+          leather with soft cushioning and breathable design
+        </p>
+        <span style="font-weight: 900;">Rs. 2,400</span>
+        <div class="btns">
+          <span>🔥🔥🔥🔥</span>
+          <button>More</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
