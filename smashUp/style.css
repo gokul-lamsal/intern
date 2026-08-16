@@ -1,0 +1,132 @@
+* {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1rem 0.8rem 1rem;
+}
+.links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  align-items: center;
+  margin-left: 5rem;
+}
+.links > li {
+  cursor: pointer;
+  &:hover {
+    color: #ff5c5c;
+  }
+}
+button {
+  border: none;
+  padding: 0.35rem 2rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.navBtns {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.primary {
+  background-color: white;
+  border: 0.4px solid black;
+}
+.secondary {
+  background-color: #ff5c5c;
+  color: white;
+  border: 0.4px solid #ff5c5c;
+}
+
+.about{
+    height: 30rem;
+    background: url("https://coolbackgrounds.io/images/compute-ea4c57a4.png");
+    background-repeat: no-repeat;
+    background-position: top right;
+    padding: 1rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.quote{
+    text-align: center;
+    margin-top: 5rem;
+    font-size: 2rem;
+
+}
+
+.smallQuote{
+ width: 35%;
+}
+
+.aboutBtns{
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.aboutBtns button{
+    font-size: 1rem;
+}
+.stats{
+    display: flex;
+    align-items: center;
+    gap:2.5rem;
+    margin-top: 2rem;
+}
+.stats div{
+    font-size: 2rem;
+}
+.stats div p{
+    font-size: 0.7rem;
+    color: gray;
+    opacity: 0.45;
+    font-weight: bold;
+    margin-left: 0.4rem;
+}
+.packages{
+    padding: 2rem;
+}
+.cards{
+    margin-top: 1rem;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+.card{
+    width: 20rem;
+    height: 18.5rem;
+    border: 1px solid #B6B6B6;
+}
+.cardImg{
+    height: 65%;
+}
+.cardImg img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.cardDescription{
+    padding: 0.5rem;
+}
+.cardStats{
+    margin-top: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+}
+.cardCost{
+    color: #ff5c5c;
+    font-size: 1.1rem;
+}
+.cardCredit{
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: grey;
+    margin-left: 1.1rem;
+}
