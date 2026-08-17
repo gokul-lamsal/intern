@@ -42,91 +42,157 @@ button {
   border: 0.4px solid #ff5c5c;
 }
 
-.about{
-    height: 30rem;
-    background: url("https://coolbackgrounds.io/images/compute-ea4c57a4.png");
-    background-repeat: no-repeat;
-    background-position: top right;
-    padding: 1rem;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+.about {
+  height: 30rem;
+  background: url("https://coolbackgrounds.io/images/compute-ea4c57a4.png");
+  background-repeat: no-repeat;
+  background-position: top right;
+  padding: 1rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
-.quote{
-    text-align: center;
-    margin-top: 5rem;
-    font-size: 2rem;
-
-}
-
-.smallQuote{
- width: 35%;
+.quote {
+  text-align: center;
+  margin-top: 5rem;
+  font-size: 2rem;
 }
 
-.aboutBtns{
-    margin-top: 10px;
-    display: flex;
-    gap: 10px;
-    align-items: center;
+.smallQuote {
+  width: 35%;
 }
-.aboutBtns button{
-    font-size: 1rem;
+
+.aboutBtns {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
-.stats{
-    display: flex;
-    align-items: center;
-    gap:2.5rem;
-    margin-top: 2rem;
+.aboutBtns button {
+  font-size: 1rem;
 }
-.stats div{
-    font-size: 2rem;
+.stats {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  margin-top: 2rem;
 }
-.stats div p{
-    font-size: 0.7rem;
-    color: gray;
-    opacity: 0.45;
-    font-weight: bold;
-    margin-left: 0.4rem;
+.stats div {
+  font-size: 2rem;
 }
-.packages{
-    padding: 2rem;
+.stats div p {
+  font-size: 0.7rem;
+  color: gray;
+  opacity: 0.45;
+  font-weight: bold;
+  margin-left: 0.4rem;
 }
-.cards{
-    margin-top: 1rem;
-    display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
+.packages,
+.browse {
+  padding: 2rem;
 }
-.card{
-    width: 20rem;
-    height: 18.5rem;
-    border: 1px solid #B6B6B6;
+.cards {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
 }
-.cardImg{
-    height: 65%;
+.card {
+  width: 20rem;
+  height: 18.5rem;
+  border: 1px solid #b6b6b6;
 }
-.cardImg img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.cardImg {
+  height: 65%;
 }
-.cardDescription{
-    padding: 0.5rem;
+.cardImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-.cardStats{
-    margin-top: 0.8rem;
-    display: flex;
-    justify-content: space-between;
+.cardDescription {
+  padding: 0.5rem;
 }
-.cardCost{
-    color: #ff5c5c;
-    font-size: 1.1rem;
+.cardStats {
+  margin-top: 0.8rem;
+  display: flex;
+  justify-content: space-between;
 }
-.cardCredit{
-    margin-top: 0.5rem;
-    font-size: 0.9rem;
-    color: grey;
-    margin-left: 1.1rem;
+.cardCost {
+  color: #ff5c5c;
+  font-size: 1.1rem;
+}
+.cardCredit {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: grey;
+  margin-left: 1.1rem;
+}
+.categoryCard {
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+  height: 9.5rem;
+  padding: 1rem 1.5rem;
+  gap: 0.8rem;
+  border-radius: 15px;
+  box-shadow: 1.5px 1.5px #cfcfcf;
+  cursor: pointer;
+}
+.categoryCard .icon {
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
+.categoryCard .categoryTitle {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.categoryCard .categoryAmount {
+  margin-top: 0.2rem;
+  color: grey;
+  font-size: 0.8rem;
+}
+.additionalInfo {
+  border-top: 0.5px solid grey;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.additionalInfo p {
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  font-style: bold;
+  margin-top: 0.3rem;
+}
+.additionalInfo span, footer span {
+  width: 30%;
+  margin-top: 0.7rem;
+  color: grey;
+  text-align: center;
+}
+.additionalInfo div {
+  margin-top: 2rem;
+  display: flex;
+  gap: 15px;
+}
+footer {
+  padding: 4rem 2rem;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+  background-color: #191a2e;
+}
+footer h2 {
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  font-style: bold;
+  color: white;
+  word-spacing: 2px;
+}
+
+footer button{
+    margin-top: 1.5rem;
 }
