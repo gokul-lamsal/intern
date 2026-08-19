@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../gobal.css" />
+    <title>Grid example</title>
+  </head>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      display: grid;
+      height: 80vh;
+      width: 100%;
+      padding: 3rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      border: 2px solid grey;
+      margin: 2rem;
+    }
+    .item {
+      border: 2px solid black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .item1 {
+      grid-column: 1/3;
+    }
+    .item4 {
+      grid-column: 2/4;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="item item1">1</div>
+      <div class="item item2">2</div>
+      <div class="item item3">3</div>
+      <div class="item item4">4</div>
+      <div class="item item5">5</div>
+      <div class="item item6">6</div>
+      <div class="item item7">7</div>
+    </div>
+  </body>
+</html>

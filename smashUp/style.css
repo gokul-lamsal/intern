@@ -138,7 +138,7 @@ button {
   padding: 1rem 1.5rem;
   gap: 0.8rem;
   border-radius: 15px;
-  box-shadow: 1.5px 1.5px #cfcfcf;
+  box-shadow: 1.5px 1.5px 2px #cfcfcf;
   cursor: pointer;
 }
 .categoryCard .icon {
