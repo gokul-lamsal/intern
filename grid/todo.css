@@ -3,7 +3,6 @@ body {
   display: flex;
   justify-content: center;
   padding: 2rem;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 .container {
   display: flex;
@@ -24,7 +23,6 @@ body {
 }
 .searchIcon {
   position: absolute;
-  right: 0;
   top: 0;
   text-align: center;
   height: 100%;
@@ -117,5 +115,33 @@ body {
     background-color: white;
     border: 1px solid #89CFF0;
     color: black;
+  }
+}
+
+
+@media (width >= 1024px) {
+  .searchIcon {
+    right: 0;
+  }
+}
+
+@media (width <= 1023px) {
+  .todoList{
+    grid-template-columns: 1fr 1fr;
+  }
+  .searchIcon {
+    left: 0;
+  }
+  #search{
+    padding-left: 2.5rem;
+  }
+}
+@media (320px <= width <= 767px) {
+  
+  .searchBar {
+    width: 15rem;
+  }
+  .todoList{
+    grid-template-columns: 1fr;
   }
 }
