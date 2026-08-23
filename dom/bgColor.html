@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bg color</title>
+    <link rel="stylesheet" href="../gobal.css" />
+  </head>
+  <style>
+    .container {
+      width: 100vw;
+      height: 100vh;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    button {
+      padding: 0.5rem 2rem;
+      border-radius: 10px;
+      border: 1px solid black;
+      cursor: pointer;
+    }
+    #off {
+      display: none;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="btns">
+        <button id="on">ON</button>
+        <button id="off">OFF</button>
+      </div>
+    </div>
+    <script>
+      const openBtn = document.querySelector("#on");
+      const closeBtn = document.querySelector("#off");
+      const bg = document.querySelector(".container");
+
+      openBtn.addEventListener("click", () => {
+        bg.style.backgroundColor = "black";
+        openBtn.style.display = "none";
+        closeBtn.style.display = "inline";
+      });
+      closeBtn.addEventListener("click", () => {
+        bg.style.backgroundColor = "white";
+        openBtn.style.display = "inline";
+        closeBtn.style.display = "none";
+      });
+    </script>
+  </body>
+</html>

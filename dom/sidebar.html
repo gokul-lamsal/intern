@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Side bar</title>
+    <link rel="stylesheet" href="../gobal.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+      integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <style>
+    .sideBar{
+        height: 100vh;
+        width: 100px;
+        background-color: #FF5C5C;
+        transition: all 0.5s ease-in-out;
+        padding: 1rem;
+    }
+    .menuBtn{
+        display: flex;
+        justify-content: end;
+        font-size: 2rem;
+        color: white;
+        cursor: pointer;
+    }
+    #close{
+        display: none;
+    }
+    .menuBtn{
+        background-color: transparent;
+        border: none;
+        margin-left: auto;
+    }
+  </style>
+  <body>
+    <div class="sideBar">
+       <button class="menuBtn">
+        <i class="fa-solid fa-bars" id="open"></i>
+        <i class="fa-solid fa-xmark" id="close"></i>
+       </button>
+    </div>
+    <script src="../jsTest/sideBar.js"></script>
+  </body>
+</html>
