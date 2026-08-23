@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Change</title>
+    <link rel="stylesheet" href="../gobal.css" />
+  </head>
+  <style>
+    body {
+      background-color: #cce3fc;
+      display: flex;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .btns {
+      display: flex;
+      font-size: 1.3rem;
+      position: relative;
+    }
+    .btns div {
+      color: rgba(0, 0, 0, 0.75);
+
+      cursor: pointer;
+      letter-spacing: 4px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.1rem;
+    }
+    .btns div span {
+      border-right: 2px solid rgba(128, 128, 128, 0.85);
+      padding: 0 2rem;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .dummy-border-html,
+    .dummy-border-css,
+    .dummy-border-js {
+      width: 1rem;
+      transition: all 0.3s ease-in-out;
+    }
+    .dummy-border-html {
+      border: 2px solid #f76142;
+      width: 5rem;
+    }
+    .dummy-border-css {
+      border: 2px solid #3270e5;
+    }
+    .dummy-border-js {
+      border: 2px solid #d1d100;
+    }
+    #html span {
+      color: #f76142;
+    }
+    #js span {
+      border-right: none;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="btns">
+        <div id="html">
+          <span>HTML</span>
+          <div class="dummy-border-html"></div>
+        </div>
+        <div id="css">
+          <span>CSS</span>
+          <div class="dummy-border-css"></div>
+        </div>
+        <div id="js">
+          <span>JS</span>
+          <div class="dummy-border-js"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const htmlBtn = document.querySelector("#html");
+      const cssBtn = document.querySelector("#css");
+      const jsBtn = document.querySelector("#js");
+      const dHtml = document.querySelector(".dummy-border-html");
+      const dCss = document.querySelector(".dummy-border-css");
+      const dJs = document.querySelector(".dummy-border-js");
+
+      const handleBtns = [
+        {
+          name: "html",
+          btn: htmlBtn,
+          dummyBorder: dHtml,
+          color: "#f76142",
+        },
+        {
+          name: "css",
+          btn: cssBtn,
+          dummyBorder: dCss,
+          color: "#3270e5",
+        },
+        {
+          name: "js",
+          btn: jsBtn,
+          dummyBorder: dJs,
+          color: "#D1D100",
+        },
+      ];
+
+      for (let i = 0; i < handleBtns.length; i++) {
+        handleBtns[i].btn.addEventListener("click", () => {
+          console.log("done", handleBtns[i].name);
+
+          let CurrentBtn = handleBtns[i];
+          CurrentBtn.dummyBorder.style.border = "2px solid " + CurrentBtn.color;
+          CurrentBtn.dummyBorder.style.width = "5rem";
+          CurrentBtn.btn.style.color = CurrentBtn.color;
+          for (let j = 0; j < handleBtns.length; j++) {
+            if (CurrentBtn != handleBtns[j]) {
+              handleBtns[j].dummyBorder.style.width = "1rem";
+              handleBtns[j].btn.style.color = "black";
+            }
+          }
+        });
+      }
+
+      //   const colorHex = {
+      //     html: "#f76142",
+      //     css: "#3270e5",
+      //     js: "#D1D100",
+      //   };
+      //   htmlBtn.addEventListener("click", () => {
+      //     dHtml.style.border = "2px solid " + colorHex.html;
+      //     dHtml.style.width = "5rem";
+      //   });
+      //   cssBtn.addEventListener("click", () => {
+      //     dCss.style.border = "2px solid " + colorHex.css;
+      //     dCss.style.width = "5rem";
+      //     cssBtn.style.color = colorHex.css;
+      //   });
+      //   jsBtn.addEventListener("click", () => {
+      //     dJs.style.border = "2px solid " + colorHex.js;
+      //     dJs.style.width = "5rem";
+      //     jsBtn.style.color = colorHex.js;
+      //   });
+    </script>
+  </body>
+</html>
