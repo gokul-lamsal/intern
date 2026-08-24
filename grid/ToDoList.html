@@ -52,12 +52,52 @@
             <button class="editBtn">Edit</button>
           </div>
         </div>
-        
+
         <div class="todoItem todoItem3">1</div>
         <div class="todoItem todoItem1">2</div>
         <div class="todoItem todoItem2">3</div>
         <div class="todoItem todoItem3">4</div>
       </div>
     </div>
+    <!-- overlay add form -->
+    <div class="addOverlayWrapper">
+      <form action="" class="addItem">
+        <div class="additemInfo">
+          <span>Add List</span>
+          <input type="text" placeholder="Title" name="title" id="title" />
+          <input
+            type="text"
+            placeholder="Description"
+            name="description"
+            id="description"
+          />
+          <input
+            type="text"
+            placeholder="Priority"
+            name="priority"
+            id="priority"
+          />
+        </div>
+        <div class="additemAction">
+          <button class="deleteBtn" type="reset">Reset</button>
+          <button class="editBtn">Submit</button>
+        </div>
+         <button class="closeOverlay" type="button">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      </form>
+     
+    </div>
+    <script>
+      const addOverlay = document.querySelector(".addOverlayWrapper");
+      const addBtn = document.querySelector(".addBtn");
+      addBtn.addEventListener("click", () => {
+        addOverlay.style.display = "flex";
+      });
+      document.querySelector(".closeOverlay").addEventListener("click", () => {
+        addOverlay.style.display = "none";
+      });
+      let isOpen = false;
+    </script>
   </body>
 </html>
