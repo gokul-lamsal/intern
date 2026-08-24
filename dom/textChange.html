@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Text Change</title>
     <link rel="stylesheet" href="../gobal.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+      integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <style>
     body {
@@ -12,6 +19,11 @@
       display: flex;
       justify-content: center;
       padding: 2rem;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     .btns {
       display: flex;
@@ -51,11 +63,58 @@
     .dummy-border-js {
       border: 2px solid #d1d100;
     }
-    #html span {
+    #html {
       color: #f76142;
     }
     #js span {
       border-right: none;
+    }
+    .content {
+      width: 60rem;
+      height: 35rem;
+      background-color: rgba(255, 240, 166, 0.85);
+      margin-top: 2rem;
+      border-radius: 0.8rem;
+      display: flex;
+      justify-content: center;
+      padding: 8rem 1rem;
+      position: relative;
+
+    }
+    .contentData {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      position: absolute;
+      /* display: none; */
+      opacity: 0;
+      transition: all 0.7s ease-in-out;
+    }
+    .contentData h3 {
+      font-size: 2rem;
+      letter-spacing: 4px;
+    }
+    .contentData span {
+      width: 50ch;
+      text-align: center;
+      font-size: 1.05rem;
+      color: #616161;
+    }
+    .contentIcon {
+      font-size: 2.5rem;
+      background-color: rgba(251, 234, 149, 0.95);
+      width: 5rem;
+      height: 5rem;
+      border-radius: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+    .htmlContent {
+      /* display: flex; */
+      opacity: 1;
     }
   </style>
   <body>
@@ -74,6 +133,40 @@
           <div class="dummy-border-js"></div>
         </div>
       </div>
+      <div class="content">
+        <div class="htmlContent contentData">
+          <div class="contentIcon">
+            <i class="fa-solid fa-code"></i>
+          </div>
+          <h3>HTML</h3>
+          <span
+            >HTML stands for Hyper Text Markup Language · HTML is the standard
+            markup language for creating Web pages·</span
+          >
+        </div>
+        <div class="cssContent contentData">
+          <div class="contentIcon">
+            <i class="fa-brands fa-tailwind-css"></i>
+          </div>
+          <h3>CSS</h3>
+          <span
+            >CSS is used to define styles for your web pages, including the
+            design, layout and variations in display for different devices and
+            screen sizes.</span
+          >
+        </div>
+
+        <div class="jsContent contentData">
+          <div class="contentIcon">
+            <i class="fa-brands fa-node-js"></i>
+          </div>
+          <h3>JavaScript</h3>
+          <span
+            >JavaScript (JS) is a programming language and core technology of
+            the Web, alongside HTML and CSS.</span
+          >
+        </div>
+      </div>
     </div>
     <script>
       const htmlBtn = document.querySelector("#html");
@@ -89,33 +182,37 @@
           btn: htmlBtn,
           dummyBorder: dHtml,
           color: "#f76142",
+          contentDiv: ".htmlContent",
         },
         {
           name: "css",
           btn: cssBtn,
           dummyBorder: dCss,
           color: "#3270e5",
+          contentDiv: ".cssContent",
         },
         {
           name: "js",
           btn: jsBtn,
           dummyBorder: dJs,
           color: "#D1D100",
+          contentDiv: ".jsContent",
         },
       ];
 
       for (let i = 0; i < handleBtns.length; i++) {
         handleBtns[i].btn.addEventListener("click", () => {
           console.log("done", handleBtns[i].name);
-
           let CurrentBtn = handleBtns[i];
           CurrentBtn.dummyBorder.style.border = "2px solid " + CurrentBtn.color;
           CurrentBtn.dummyBorder.style.width = "5rem";
           CurrentBtn.btn.style.color = CurrentBtn.color;
+          document.querySelector(CurrentBtn.contentDiv).style.opacity = "1";
           for (let j = 0; j < handleBtns.length; j++) {
             if (CurrentBtn != handleBtns[j]) {
               handleBtns[j].dummyBorder.style.width = "1rem";
               handleBtns[j].btn.style.color = "black";
+              document.querySelector(handleBtns[j].contentDiv).style.opacity = "0";
             }
           }
         });
