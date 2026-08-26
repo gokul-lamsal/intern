@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timer</title>
+    <link rel="stylesheet" href="../gobal.css" />
+  </head>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .timer,
+    .timerButtons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+    #hour,
+    #minute,
+    #seconds {
+      color: orange;
+    }
+    .timer {
+      font-size: 2rem;
+    }
+    .timerButtons {
+      margin-top: 2rem;
+    }
+    .timerButtons button {
+      padding: 0.5rem 2rem;
+      border-radius: 0.5rem;
+      border: 1px solid black;
+      background-color: transparent;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        background-color: #daa06d;
+      }
+    }
+    #resume {
+      display: none;
+    }
+    .timer div > span:nth-child(2) {
+      color: orange;
+      font-size: 1.5rem;
+      margin-left: -6px;
+    }
+    .errorDiv {
+      display: flex;
+      margin-top: 2rem;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: red;
+      align-items: center;
+      height: 15px;
+    }
+    #error {
+      opacity: 0;
+      transition: all 0.5s ease-in-out;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="timer">
+        <div>
+          <span id="hour">00</span>
+          <span>h</span>
+        </div>
+        <span>:</span>
+        <div>
+          <span id="minute">00</span>
+          <span>m</span>
+        </div>
+        <span>:</span>
+        <div>
+          <span id="seconds">00</span>
+          <span>s</span>
+        </div>
+      </div>
+      <div class="timerButtons">
+        <button id="start">Start</button>
+        <button id="pause">Pause</button>
+        <button id="resume">Resume</button>
+        <button id="reset">Reset</button>
+      </div>
+      <div class="errorDiv">
+        <span id="error"></span>
+      </div>
+    </div>
+    <script>
+      const hourTimer = document.querySelector("#hour");
+      const minuteTimer = document.querySelector("#minute");
+      const secondTimer = document.querySelector("#seconds");
+      const startButton = document.querySelector("#start");
+      const pauseButton = document.querySelector("#pause");
+      const resumeButton = document.querySelector("#resume");
+      const resetButton = document.querySelector("#reset");
+      const errorSpan = document.querySelector("#error");
+      let hr = 0;
+      let min = 0;
+      let sec = 0;
+      let timerId = null;
+      let count = 0;
+      const showError = (errMsg) => {
+        errorSpan.innerHTML = "😅 " + errMsg;
+        errorSpan.style.opacity = "1.0";
+        setTimeout(() => {
+          errorSpan.style.opacity = "0.0";
+        }, 1500);
+      };
+      const runTimer = () => {
+        console.log(hr, min, sec);
+        if (count > 0) {
+          sec++;
+        }
+        if (sec > 59) {
+          sec = 0;
+          min++;
+        }
+        if (min > 59) {
+          min = 0;
+          min++;
+        }
+        hourTimer.innerHTML = "0" + hr;
+        minuteTimer.innerHTML = "0" + min;
+        if (sec > 9) {
+          secondTimer.innerHTML = sec;
+        } else {
+          secondTimer.innerHTML = "0" + sec;
+        }
+      };
+      startButton.addEventListener("click", () => {
+        console.log(timerId);
+
+        if (timerId != null) {
+          showError("Timer already running ");
+          return;
+        }
+        timerId = setInterval(() => {
+          count++;
+          runTimer();
+        }, 1000);
+      });
+      resetButton.addEventListener("click", () => {
+        console.log(timerId);
+        pauseButton.style.display = "inline";
+        resumeButton.style.display = "none";
+        if (count == 0) {
+          showError("Timer already at 0");
+          return;
+        }
+        clearInterval(timerId);
+        timerId = null;
+        count = 0;
+        hr = 0;
+        min = 0;
+        sec = 0;
+
+        runTimer();
+      });
+      pauseButton.addEventListener("click", () => {
+        if(timerId == null){
+            showError("Timer hasnt started!")
+            return
+        }
+        pauseButton.style.display = "none";
+        resumeButton.style.display = "inline";
+        clearInterval(timerId);
+      });
+      resumeButton.addEventListener("click", () => {
+        console.log("resume clicked");
+        pauseButton.style.display = "inline";
+        resumeButton.style.display = "none";
+        timerId = setInterval(() => {
+          count++;
+          runTimer();
+        }, 1000);
+      });
+    </script>
+  </body>
+</html>

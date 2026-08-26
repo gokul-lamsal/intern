@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color text</title>
+    <link rel="stylesheet" href="../gobal.css" />
+  </head>
+  <style>
+    .btnContainer {
+      display: flex;
+      height: 100vh;
+      background-color: black;
+      justify-content: center;
+      align-items: start;
+      padding: 2rem;
+      gap: 20px;
+    }
+    .colorBtn {
+      padding: 0.5rem 2rem;
+      border-radius: 0.66rem;
+      outline: none;
+      cursor: pointer;
+      border: none;
+    }
+  </style>
+  <body>
+    <div class="btnContainer">
+      <button class="colorBtn">Red</button>
+      <button class="colorBtn">Blue</button>
+      <button class="colorBtn">Yellow</button>
+      <button class="colorBtn">Green</button>
+      <button class="colorBtn">Orange</button>
+    </div>
+    <script>
+      const container = document.querySelector(".btnContainer");
+      const colorBtns = document.querySelectorAll(".colorBtn");
+      for (let i = 0; i < colorBtns.length; i++) {
+        colorBtns[i].addEventListener("click", () => {
+            container.style.backgroundColor = colorBtns[i].innerHTML
+        });
+      }
+    </script>
+  </body>
+</html>

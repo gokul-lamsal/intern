@@ -82,19 +82,20 @@
           <button class="deleteBtn" type="reset">Reset</button>
           <button class="editBtn">Submit</button>
         </div>
-         <button class="closeOverlay" type="button">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
+        <button class="closeOverlay" type="button">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
       </form>
-     
     </div>
     <script>
       const addOverlay = document.querySelector(".addOverlayWrapper");
       const addBtn = document.querySelector(".addBtn");
+      const addItem = document.querySelector(".addItem");
+      const closeBtn = document.querySelector(".closeOverlay");
       addBtn.addEventListener("click", () => {
         addOverlay.style.display = "flex";
       });
-      document.querySelector(".closeOverlay").addEventListener("click", () => {
+      closeBtn.addEventListener("click", () => {
         addOverlay.style.display = "none";
       });
       let isOpen = false;
