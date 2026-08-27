@@ -4,6 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Timer</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+      integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="../gobal.css" />
   </head>
   <style>
@@ -32,14 +39,15 @@
     }
     .timerButtons button {
       padding: 0.5rem 2rem;
-      border-radius: 0.5rem;
-      border: 1px solid black;
+      border-radius: 0.8rem;
+      border: 1px solid white;
       background-color: transparent;
       font-size: 1.1rem;
       cursor: pointer;
       transition: all 0.3s ease-in-out;
+      box-shadow: 1px 1px 5px grey;
       &:hover {
-        background-color: #daa06d;
+        box-shadow: 1px 1px 8px grey;
       }
     }
     #resume {
@@ -63,6 +71,19 @@
       opacity: 0;
       transition: all 0.5s ease-in-out;
     }
+    .msDiv {
+      position: absolute;
+      top: 20px;
+      right: 10px;
+    }
+    #start {
+      color: blue;
+    }
+    #pause,
+    #resume,
+    #reset {
+      display: none;
+    }
   </style>
   <body>
     <div class="container">
@@ -81,12 +102,18 @@
           <span id="seconds">00</span>
           <span>s</span>
         </div>
+        <div class="msDiv">
+          <div>
+            <span id="miliseconds">00</span>
+            <span>s</span>
+          </div>
+        </div>
       </div>
       <div class="timerButtons">
-        <button id="start">Start</button>
-        <button id="pause">Pause</button>
-        <button id="resume">Resume</button>
-        <button id="reset">Reset</button>
+        <button id="start"><i class="fa-solid fa-play"></i></button>
+        <button id="pause"><i class="fa-solid fa-pause"></i></button>
+        <button id="resume"><i class="fa-solid fa-play"></i></button>
+        <button id="reset"><i class="fa-solid fa-stop"></i></button>
       </div>
       <div class="errorDiv">
         <span id="error"></span>
@@ -96,6 +123,7 @@
       const hourTimer = document.querySelector("#hour");
       const minuteTimer = document.querySelector("#minute");
       const secondTimer = document.querySelector("#seconds");
+      const milisecondTimer = document.querySelector("#miliseconds");
       const startButton = document.querySelector("#start");
       const pauseButton = document.querySelector("#pause");
       const resumeButton = document.querySelector("#resume");
@@ -104,6 +132,7 @@
       let hr = 0;
       let min = 0;
       let sec = 0;
+      let ms = 0;
       let timerId = null;
       let count = 0;
       const showError = (errMsg) => {
@@ -145,11 +174,13 @@
           count++;
           runTimer();
         }, 1000);
+        startButton.style.display = "none";
+        pauseButton.style.display = "inline";
+        resetButton.style.display = "inline";
       });
       resetButton.addEventListener("click", () => {
         console.log(timerId);
-        pauseButton.style.display = "inline";
-        resumeButton.style.display = "none";
+
         if (count == 0) {
           showError("Timer already at 0");
           return;
@@ -162,11 +193,15 @@
         sec = 0;
 
         runTimer();
+        pauseButton.style.display = "none";
+        resumeButton.style.display = "none";
+        resetButton.style.display = "none";
+        startButton.style.display = "inline";
       });
       pauseButton.addEventListener("click", () => {
-        if(timerId == null){
-            showError("Timer hasnt started!")
-            return
+        if (timerId == null) {
+          showError("Timer hasnt started!");
+          return;
         }
         pauseButton.style.display = "none";
         resumeButton.style.display = "inline";
