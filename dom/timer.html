@@ -84,6 +84,8 @@
     #reset {
       display: none;
     }
+    #miliseconds {
+    }
   </style>
   <body>
     <div class="container">
@@ -105,7 +107,6 @@
         <div class="msDiv">
           <div>
             <span id="miliseconds">00</span>
-            <span>s</span>
           </div>
         </div>
       </div>
@@ -130,7 +131,7 @@
       const resetButton = document.querySelector("#reset");
       const errorSpan = document.querySelector("#error");
       let hr = 0;
-      let min = 0;
+      let min = 59;
       let sec = 0;
       let ms = 0;
       let timerId = null;
@@ -145,6 +146,10 @@
       const runTimer = () => {
         console.log(hr, min, sec);
         if (count > 0) {
+          ms++;
+        }
+        if (ms > 99) {
+          ms = 0;
           sec++;
         }
         if (sec > 59) {
@@ -153,15 +158,19 @@
         }
         if (min > 59) {
           min = 0;
-          min++;
+          hr++;
         }
+
         hourTimer.innerHTML = "0" + hr;
-        minuteTimer.innerHTML = "0" + min;
-        if (sec > 9) {
-          secondTimer.innerHTML = sec;
-        } else {
-          secondTimer.innerHTML = "0" + sec;
-        }
+        minuteTimer.innerHTML = min > 9? min: "0" + min;
+        secondTimer.innerHTML = sec > 9 ? sec : "0" + sec;
+        milisecondTimer.innerHTML = ms > 9 ? ms : "0" + ms;
+      };
+      const startTimer = () => {
+        timerId = setInterval(() => {
+          count++;
+          runTimer();
+        }, 10);
       };
       startButton.addEventListener("click", () => {
         console.log(timerId);
@@ -170,10 +179,7 @@
           showError("Timer already running ");
           return;
         }
-        timerId = setInterval(() => {
-          count++;
-          runTimer();
-        }, 1000);
+        startTimer();
         startButton.style.display = "none";
         pauseButton.style.display = "inline";
         resetButton.style.display = "inline";
@@ -191,7 +197,7 @@
         hr = 0;
         min = 0;
         sec = 0;
-
+        ms = 0;
         runTimer();
         pauseButton.style.display = "none";
         resumeButton.style.display = "none";
@@ -211,10 +217,7 @@
         console.log("resume clicked");
         pauseButton.style.display = "inline";
         resumeButton.style.display = "none";
-        timerId = setInterval(() => {
-          count++;
-          runTimer();
-        }, 1000);
+        startTimer();
       });
     </script>
   </body>

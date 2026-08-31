@@ -43,11 +43,13 @@ button {
 }
 
 .about {
-  height: 30rem;
+  height: calc(fit-content+20rem);
+
   background: url("https://coolbackgrounds.io/images/compute-ea4c57a4.png");
   background-repeat: no-repeat;
   background-position: top right;
   padding: 1rem;
+  padding-bottom: 2rem;
   color: white;
   display: flex;
   flex-direction: column;
@@ -95,9 +97,11 @@ button {
 }
 .cards {
   margin-top: 1rem;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
   gap: 1.5rem;
-  flex-wrap: wrap;
+  justify-items: center;
 }
 .card {
   width: 20rem;
@@ -167,7 +171,8 @@ button {
   font-style: bold;
   margin-top: 0.3rem;
 }
-.additionalInfo span, footer span {
+.additionalInfo span,
+footer span {
   width: 30%;
   margin-top: 0.7rem;
   color: grey;
@@ -180,9 +185,9 @@ button {
 }
 footer {
   padding: 4rem 2rem;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: #191a2e;
 }
 footer h2 {
@@ -191,8 +196,45 @@ footer h2 {
   font-style: bold;
   color: white;
   word-spacing: 2px;
+  text-align: center;
 }
 
-footer button{
-    margin-top: 1.5rem;
+footer button {
+  margin-top: 1.5rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .about {
+    background-repeat: repeat;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+  .navBtns {
+    display: none;
+  }
+  .smallQuote {
+    width: 70%;
+  }
+  .browse > .cards {
+    gap: 1.8rem !important;
+  }
+  footer span,
+  .additionalInfo span {
+    width: 70%;
+  }
+  .about {
+    background-position: bottom right;
+  }
 }
