@@ -1,0 +1,123 @@
+nav {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  right: 0;
+  left: 0;
+  padding: 0.8rem 1rem 0.8rem 1rem;
+  box-shadow: 0px 1.5px 4px rgba(128, 128, 128, 0.8);
+  z-index: 1;
+  background-color: white;
+}
+.links {
+  display: flex;
+  list-style: none;
+  gap: 4rem;
+  align-items: center;
+  margin-left: 5rem;
+  justify-content: center;
+  flex-grow: 1;
+  font-size: 1.2rem;
+  margin-right: 8rem;
+}
+.links > li {
+  cursor: pointer;
+  &:hover {
+    color: #ff5c5c;
+  }
+}
+main {
+  display: flex;
+}
+.sideBar {
+  height: 100dvh;
+  background-color: #191a2e;
+  width: 300px;
+  color: white;
+  padding: 7.5rem 1.5rem;
+  position: relative;
+}
+.sideBar > .mainMenu > P {
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+  margin-left: 0.4rem;
+}
+
+.mainMenuList {
+  list-style: none;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+.dummyBgMenuItem {
+  position: absolute;
+  background-color: rgba(255, 92, 92, 0.9);
+  top: 0;
+  bottom: 0;
+  right: -15px;
+  width: 15px;
+  border-top-right-radius: 0.8rem;
+  border-bottom-right-radius: 0.8rem;
+  transition: all 0.3s ease-in-out;
+}
+.mainMenuListItems {
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  width: fit-content;
+  &:hover {
+    color: #ff5c5c;
+    background-color: rgba(63, 59, 78, 0.7);
+  }
+  padding: 0.6rem 2.5rem 0.6rem 1.2rem;
+  border-radius: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  overflow: hidden;
+  &:hover {
+    .dummyBgMenuItem {
+      right: 0px;
+    }
+  }
+}
+
+.mainMenuListIcon {
+  font-size: 1.4rem;
+}
+.mainMenuListText {
+  letter-spacing: 1.2px;
+}
+
+.content {
+  width: 200px;
+  margin: 7.5rem 4rem 5rem 8rem;
+  flex: 1;
+}
+
+.imgContainer {
+  width: 38rem;
+  height: 28rem;
+  border-radius: 0.8rem;
+  position: relative;
+}
+.imgContainer img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0.8rem;
+  position: absolute;
+}
+
+.imgContainer div {
+  position: absolute;
+  padding: 1rem;
+}
+.imgContainerText span{
+    background-color: gray;
+    padding: 0.2rem 0.6rem;
+    border-radius: 0.8rem;
+    color:rgba(0, 0, 0,0.6);
+}
